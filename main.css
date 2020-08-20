@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.container-input {
+  width: 50%;
+  position: relative;
+  height: 50px;
+  background-color: palevioletred;
+  overflow: hidden;
+}
+
+.container-input input {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+  color: #595f6e
+}
+
+.container-input label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+
+.container-input label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #ffc0cb;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+.container-input input:focus + .label-name .content-name,
+.container-input input:not(:placeholder-shown) + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #ffc0cb;
+}
+
+.container-input input:focus + .label-name::after,
+.container-input input:not(:placeholder-shown) + .label-name::after {
+  transform: translateX(0%);
+}
